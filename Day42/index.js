@@ -23,7 +23,7 @@ app.use(express.json())
 // })
 
 // let arr = ["cat", "dog", "cat", "dog"]
-// Path parameter
+// // Path parameter
 // app.get('/:ani',(req,res)=>{
 //     let {ani} = req.params
 //     let data = arr.filter((a)=>{
