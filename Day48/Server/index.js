@@ -85,13 +85,25 @@ app.post('/login',async (req, res)=>{
       if(validPass){
          let token = jwt.sign({ email: userInfo.email, role: userInfo.role }, "PRIVATESTRING");
          console.log(token);
-         res.send("Login doneeeee.....");
+         // res.send(`Login successfully... Your token is: ${token}`);
+         res.send(`${token}`);
       }
       else{
          res.send("Password galat hai...");
       }
    }
 })
+
+// app.post('/validate', async (req, res)=>{
+//    let {token} = req.body;
+//    let validate = await User.findOne({token})
+//    if(!validate || token != validate.passWord){
+//       res.status(400).send("Invalid User");
+//    }
+//    else{
+//       res.status(200).send("Valid User")
+//    }
+// })
 
 app.listen(4000, () => {
    console.log("server running on port no 4000");
