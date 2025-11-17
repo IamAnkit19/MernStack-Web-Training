@@ -9,6 +9,8 @@ let jwt = require('jsonwebtoken')
 
 let User = require('./user')
 let bcrypt = require('bcrypt')
+let crypto = require('crypto');
+let {sendEmail} = require('./sendEmail')
 
 
 // npm i mongoose
@@ -40,6 +42,32 @@ function checkRole(role){
       }
    }
 }
+
+app.post('/forget-password', async (req, res)=>{
+   const {email} = req.body;
+   try{
+      const user = await User.findOne({email});
+      if(!user){
+         return res.status(404).send('User Not Found');
+      }
+      const resetToken = crypto.randomBytes(20).toString('hex');
+      user.resetToken = resetToken;
+      user.resetTokenExpiry = Date.now() + 3600000;
+      await user.save()
+
+      const resetUrl = `${req.protocol}://${req.get('host')}/reset-password/${resetToken}`;
+      await sendEmail(
+         user.email,
+         'Password Reset Request',
+         `Click the link below to reset your password:\n\n${resetUrl}`
+      );
+
+      res.status(200).send('Password reset email sent');
+   }
+   catch(error){
+      res.status(500).send('Error sending password reset email: ' + error.message);
+   }
+})
 
 app.get('/public', (req, res) => {
    res.send("Anyone can access it")
