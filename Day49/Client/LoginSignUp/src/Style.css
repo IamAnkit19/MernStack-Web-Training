@@ -65,3 +65,7 @@ button{
     width: max-content;
     height: max-content;
 }
+
+#forgetPass{
+    cursor: pointer;
+}

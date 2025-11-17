@@ -45,6 +45,9 @@ const Login = () => {
                     <input type="password" id='passWord' name='passWord' value={input.passWord} onChange={fun1} placeholder='Enter your Password'/>
                 </div>
                 <button onClick={done}>Login</button>
+                <Link to={'/forgetPass'}>
+                    <p id='forgetPass'>Forget Password</p>
+                </Link>
                 <Link to={'/'} id='linkTag'>
                     <p>Don't Have An Account?</p>
                     <button>SignUp</button>

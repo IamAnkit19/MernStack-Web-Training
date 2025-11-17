@@ -4,6 +4,7 @@ import SignUp from './SignUp'
 import Login from './Login'
 import Private from './Private'
 import Public from './Public'
+import ForgetPassword from './ForgetPassword'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/public' element={<Public/>}></Route>
         <Route path='/private' element={<Private/>}></Route>
+        <Route path='/forgetPass' element={<ForgetPassword/>}></Route>
       </Routes>
     </div>
   )
