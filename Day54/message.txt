@@ -1,0 +1,13 @@
+Day: 54
+Date: 24/11/2025
+Day: Monday
+
+Instagram Clone.
+
+
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = 'https://xnenqbetuufqkuxzwvvy.supabase.co'
+const supabaseKey = process.env.SUPABASE_KEY
+const supabase = createClient(supabaseUrl, supabaseKey)
+API KEY = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhuZW5xYmV0dXVmcWt1eHp3dnZ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM2OTgwNjYsImV4cCI6MjA3OTI3NDA2Nn0.aDiz6CDIMxvLn76hnxAifd0t7saqpuk9RM5OdkOmS5M
